@@ -8,7 +8,8 @@ export default class ReactPaint extends Component {
     width: 500,
     brushCol: '#ff6347',
     lineWidth: 10,
-    onDraw: () => {}
+    onDraw: () => {},
+    clear:0
   };
 
   constructor(...props) {
@@ -23,6 +24,7 @@ export default class ReactPaint extends Component {
   componentDidMount() {
     const { brushCol, lineWidth } = this.props;
     this.context = this.canvas.getContext('2d');
+    this.context.moveTo(0, 0);
     this.context.lineWidth = lineWidth;
     this.context.strokeStyle = brushCol;
     this.context.lineJoin = this.context.lineCap = 'round';
@@ -43,10 +45,15 @@ export default class ReactPaint extends Component {
   }
 
   componentWillUpdate(nextProps) {
+    this.context = this.canvas.getContext('2d');
     this.context.closePath && this.context.closePath();
     this.context.beginPath && this.context.beginPath();
-    const { brushCol, lineWidth } = this.props;
+    const { brushCol, lineWidth, clear } = this.props;
+    if (clear !== nextProps.clear) {
+      this.context.clearRect(0, 0, this.props.width, this.props.height);
+    }
     if (brushCol !== nextProps.brushCol || lineWidth !== nextProps.lineWidth) {
+      this.context.moveTo(0, 0);
       this.context.lineWidth = nextProps.lineWidth;
       this.context.strokeStyle = nextProps.brushCol;
     }

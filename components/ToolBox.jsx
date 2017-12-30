@@ -1,110 +1,27 @@
 import React from 'react';
 import {Button, Row, Col} from 'muicss/react';
-
+import Slider from 'rc-slider/lib/Slider';
+import ColorPicker from './ColorPicker'
+import 'rc-slider/assets/index.css';
 const ToolBox = (props) => {
   return (
-    <Row>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#d9534f'}}
-          onClick={() => props.onPropChange({ brushCol: '#d9534f' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#5bc0de'}}
-          onClick={() => props.onPropChange({ brushCol: '#5bc0de' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#5cb85c'}}
-          onClick={() => props.onPropChange({ brushCol: '#5cb85c' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#428bca'}}
-          onClick={() => props.onPropChange({ brushCol: '#428bca' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#DAF7A6'}}
-          onClick={() => props.onPropChange({ brushCol: '#DAF7A6' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#FFC300'}}
-          onClick={() => props.onPropChange({ brushCol: '#FFC300' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#C70039'}}
-          onClick={() => props.onPropChange({ brushCol: '#C70039' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#9C27B0'}}
-          onClick={() => props.onPropChange({ brushCol: '#9C27B0' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#FFF176'}}
-          onClick={() => props.onPropChange({ brushCol: '#FFF176' })}
-        >
-        </Button>
-      </Col>
-      <Col md='6'>
-        <Button
-          color="primary"
-          variant="fab"
-          size="small"
-          style={{'backgroundColor': '#000000'}}
-          onClick={() => props.onPropChange({ brushCol: '#000000' })}
-        >
-        </Button>
-      </Col>
-    </Row>
+    <div> 
+      <Row>
+        <Col md='12' className="mui--text-accent mui--text-subhead">Brush Color</Col>
+      </Row>
+      <ColorPicker onColorChange={(color) => props.onPropChange({brushCol: color})}/>
+      <Row style={{'marginTop':'20px'}}>
+        <Col md='12' className="mui--text-accent mui--text-subhead">Brush Thickness</Col>
+      </Row>
+      <Slider min={0} max={10} defaultValue={3} onAfterChange = {(data) => props.onPropChange({ lineWidth: data })}/>
+      <Row style={{'marginTop':'20px'}}>
+        <Col md='12' className="mui--text-accent mui--text-subhead">Background Color</Col>
+        <ColorPicker onColorChange={(color) => props.onPropChange({style: {background: color}})}/>
+      </Row>
+      <Row>
+        <Button color="danger" onClick={() => props.onPropChange({clear: props.clear+1})}>Clear</Button>
+      </Row>
+    </div>
   );
 }
 export default ToolBox;

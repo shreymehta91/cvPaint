@@ -8,14 +8,15 @@ class PaintCanvas extends Component {
   state = {
     prop: {
       style: {
-        background: 'tomato'
+        background: '#d9534f'
       },
-      brushCol: 'yellow',
-      lineWidth: 10,
+      brushCol: '#FFF176',
+      lineWidth: 3,
       className: 'react-paint',
       height: 500,
       width: 500,
-      img: images[this.props.match.params.paintId]
+      img: images[this.props.match.params.paintId],
+      clear: 0
     }
   };
   onPropChange(newProp) {
@@ -29,7 +30,7 @@ class PaintCanvas extends Component {
           <ReactPaint {...this.state.prop} />
         </Col>
         <Col md='2'>
-          <ToolBox onPropChange={this.onPropChange.bind(this)} />
+          <ToolBox onPropChange={this.onPropChange.bind(this)} clear={this.state.prop.clear} />
         </Col>
       </Row>
     );
