@@ -1,0 +1,32 @@
+{
+  "name": "canvas_paint",
+  "version": "1.0.0",
+  "description": "Browser version of MS paint",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shrey Mehta",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-stage-2": "^6.24.1",
+    "muicss": "^0.9.35",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-paint": "^1.0.1",
+    "react-router-dom": "4.1.1",
+    "react-stonecutter": "^0.3.8"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "path": "^0.12.7",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}
