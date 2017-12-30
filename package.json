@@ -12,6 +12,7 @@
   "dependencies": {
     "babel-preset-stage-2": "^6.24.1",
     "muicss": "^0.9.35",
+    "rc-slider": "^8.5.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-paint": "^1.0.1",

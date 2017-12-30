@@ -2,30 +2,36 @@ import React from 'react';
 import { SpringGrid } from 'react-stonecutter';
 import imageApi from '../imageApi';
 import { Link } from 'react-router-dom';
+import {Row, Col, Button} from 'muicss/react';
+
+const imageStyle = {
+  width : '300px',
+  height: '300px'
+}
+
+const addButton = {
+  position: 'fixed',
+  right: '10px',
+  bottom: '10px'
+}
 
 const DashBoard = () => {
   return (
-    <div className="hello-world">
-      <SpringGrid
-        component="ul"
-        columns={5}
-        columnWidth={200}
-        gutterWidth={20}
-        gutterHeight={20}
-        itemHeight={200}
-        springConfig={{ stiffness: 170, damping: 26 }}
-      >
-        {imageApi.map(function(imageObj, index) {
-          return (
-            <li key={imageObj.id}>
-              <Link to={'/draw/' + index}>
-                <img src={imageObj.path} width="200px" height="200px" />
-              </Link>
-            </li>
-          );
-        })}
-      </SpringGrid>
-    </div>
+      <div>
+        <Row>
+          {imageApi.map(function(imageObj, index){
+            return (<Col md='4' key={imageObj.id}>
+                <Link to={'/draw/' + index}>
+                  <img src={imageObj.path} style={imageStyle} />
+                </Link>
+              </Col>)
+          })}
+        </Row>
+
+        <Link to={'/draw'} style={addButton}>
+          <Button size='large' variant="fab" color="primary">+</Button>
+        </Link>
+      </div>
   );
 };
 export default DashBoard;

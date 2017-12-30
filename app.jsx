@@ -5,10 +5,20 @@ import PaintCanvas from './components/PaintCanvas';
 import DashBoard from './components/DashBoard';
 import { Appbar, Container, Panel } from 'muicss/react';
 import 'muicss/dist/css/mui.css';
+
+const headerStyle = {
+    fontSize:'22px',
+    paddingLeft:'20px'
+}
+const containerStyle = {
+  marginTop: '20px'
+}
 const App = () => (
   <div>
-    <Appbar>Canvas Paint</Appbar>
-    <Container>
+    <Appbar>
+      <div className="mui--appbar-height mui--appbar-line-height" style={headerStyle}>Canvas Paint</div>
+    </Appbar>
+    <Container fluid={true} style={containerStyle}>
       <BrowserRouter>
         <div className="app">
           <Switch>

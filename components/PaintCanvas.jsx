@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import ReactPaint from './PaintArea';
 import ToolBox from './ToolBox';
 import images from '../imageApi';
+import {Row, Col, Button} from 'muicss/react'
 
 class PaintCanvas extends Component {
   state = {
     prop: {
       style: {
         background: 'tomato'
-        /* Arbitrary css styles */
       },
       brushCol: 'yellow',
       lineWidth: 10,
@@ -24,10 +24,14 @@ class PaintCanvas extends Component {
   }
   render() {
     return (
-      <div className="hello-world">
-        <ReactPaint {...this.state.prop} />
-        <ToolBox onPropChange={this.onPropChange.bind(this)} />
-      </div>
+      <Row>
+        <Col md='6'>
+          <ReactPaint {...this.state.prop} />
+        </Col>
+        <Col md='2'>
+          <ToolBox onPropChange={this.onPropChange.bind(this)} />
+        </Col>
+      </Row>
     );
   }
 }
