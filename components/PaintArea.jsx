@@ -20,7 +20,19 @@ export default class ReactPaint extends Component {
       mouseLoc: [0, 0]
     };
   }
-
+  loadImage = () => {
+    const image = new Image();
+    image.src = this.props.img.path;
+    image.onload = () => {
+      this.canvas.getContext('2d').drawImage(
+        image,
+        0,
+        0,
+        this.props.width,
+        this.props.height
+      );
+    };
+  }
   componentDidMount() {
     const { brushCol, lineWidth } = this.props;
     this.context = this.canvas.getContext('2d');
@@ -30,17 +42,7 @@ export default class ReactPaint extends Component {
     this.context.lineJoin = this.context.lineCap = 'round';
     this.bb = this.canvas.getBoundingClientRect();
     if (this.props.img) {
-      const image = new Image();
-      image.src = this.props.img.path;
-      image.onload = () => {
-        this.context.drawImage(
-          image,
-          0,
-          0,
-          this.props.width,
-          this.props.height
-        );
-      };
+      this.loadImage()
     }
   }
 
@@ -51,7 +53,11 @@ export default class ReactPaint extends Component {
     const { brushCol, lineWidth, clear } = this.props;
     if (clear !== nextProps.clear) {
       this.context.clearRect(0, 0, this.props.width, this.props.height);
+      if (this.props.img) {
+        this.loadImage()
+      }
     }
+
     if (brushCol !== nextProps.brushCol || lineWidth !== nextProps.lineWidth) {
       this.context.moveTo(0, 0);
       this.context.lineWidth = nextProps.lineWidth;
