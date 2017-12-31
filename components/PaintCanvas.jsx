@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactPaint from './PaintArea';
 import ToolBox from './ToolBox';
 import images from '../imageApi';
-import {Row, Col, Button} from 'muicss/react'
+import { Row, Col, Button } from 'muicss/react';
 
 class PaintCanvas extends Component {
   state = {
@@ -26,11 +26,14 @@ class PaintCanvas extends Component {
   render() {
     return (
       <Row>
-        <Col md='6'>
+        <Col md="6">
           <ReactPaint {...this.state.prop} />
         </Col>
-        <Col md='2'>
-          <ToolBox onPropChange={this.onPropChange.bind(this)} clear={this.state.prop.clear} />
+        <Col md="2">
+          <ToolBox
+            onPropChange={this.onPropChange.bind(this)}
+            clear={this.state.prop.clear}
+          />
         </Col>
       </Row>
     );

@@ -9,7 +9,7 @@ export default class ReactPaint extends Component {
     brushCol: '#ff6347',
     lineWidth: 10,
     onDraw: () => {},
-    clear:0
+    clear: 0
   };
 
   constructor(...props) {
@@ -24,15 +24,11 @@ export default class ReactPaint extends Component {
     const image = new Image();
     image.src = this.props.img.path;
     image.onload = () => {
-      this.canvas.getContext('2d').drawImage(
-        image,
-        0,
-        0,
-        this.props.width,
-        this.props.height
-      );
+      this.canvas
+        .getContext('2d')
+        .drawImage(image, 0, 0, this.props.width, this.props.height);
     };
-  }
+  };
   componentDidMount() {
     const { brushCol, lineWidth } = this.props;
     this.context = this.canvas.getContext('2d');
@@ -42,7 +38,7 @@ export default class ReactPaint extends Component {
     this.context.lineJoin = this.context.lineCap = 'round';
     this.bb = this.canvas.getBoundingClientRect();
     if (this.props.img) {
-      this.loadImage()
+      this.loadImage();
     }
   }
 
@@ -54,7 +50,7 @@ export default class ReactPaint extends Component {
     if (clear !== nextProps.clear) {
       this.context.clearRect(0, 0, this.props.width, this.props.height);
       if (this.props.img) {
-        this.loadImage()
+        this.loadImage();
       }
     }
 
