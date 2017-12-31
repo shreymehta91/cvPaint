@@ -33,6 +33,7 @@ class PaintCanvas extends Component {
           <ToolBox
             onPropChange={this.onPropChange.bind(this)}
             clear={this.state.prop.clear}
+            hasImage={this.state.prop.img}
           />
         </Col>
       </Row>
