@@ -2,15 +2,22 @@
   "name": "canvas_paint",
   "version": "1.0.0",
   "description": "Browser version of MS paint",
-  "main": "index.js",
+  "main": "server.js",
+  "engines": {
+    "node": "8.9.1"
+  },
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack && node server.js",
     "start-dev": "webpack-dev-server",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shrey Mehta",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shreymehta91/cvPaint"
+  },
   "dependencies": {
     "babel-preset-stage-2": "^6.24.1",
     "express": "^4.16.2",
