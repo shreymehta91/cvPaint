@@ -4,7 +4,8 @@
   "description": "Browser version of MS paint",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "node server.js",
+    "start-dev": "webpack-dev-server",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "babel-preset-stage-2": "^6.24.1",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
     "muicss": "^0.9.35",
     "rc-slider": "^8.5.0",
     "react": "^16.2.0",
