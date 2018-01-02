@@ -1,4 +1,4 @@
-# A Complete Intro to React
+# Canvas Paint
 
 Simple painting utility made using canvas and React
 
