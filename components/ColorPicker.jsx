@@ -6,6 +6,7 @@ const ColorPicker = props => {
     <Row>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -15,6 +16,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -24,6 +26,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -33,6 +36,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -42,6 +46,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -51,6 +56,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -60,6 +66,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -69,6 +76,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -78,6 +86,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"
@@ -87,6 +96,7 @@ const ColorPicker = props => {
       </Col>
       <Col md="3">
         <Button
+          disabled={props.disableButtons}
           color="primary"
           variant="fab"
           size="small"

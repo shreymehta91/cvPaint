@@ -13,6 +13,7 @@ const ToolBox = props => {
       </Row>
       <ColorPicker
         onColorChange={color => props.onPropChange({ brushCol: color })}
+        disableButtons={false}
       />
       <Row style={{ marginTop: '20px' }}>
         <Col md="12" className="mui--text-accent mui--text-subhead">
@@ -33,12 +34,14 @@ const ToolBox = props => {
           onColorChange={color =>
             props.onPropChange({ style: { background: color } })
           }
+          disableButtons={props.hasImage}
         />
       </Row>
       <Row>
         <Button
           color="danger"
-          onClick={() => props.onPropChange({ clear: props.clear + 1 })}
+          onClick={() => props.onPropChange({ clear: props.clear + 1 })
+        }
         >
           Clear
         </Button>
