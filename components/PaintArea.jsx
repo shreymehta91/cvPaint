@@ -36,7 +36,7 @@ export default class ReactPaint extends Component {
     this.context.lineWidth = lineWidth;
     this.context.strokeStyle = brushCol;
     this.context.lineJoin = this.context.lineCap = 'round';
-    this.bb = this.canvas.getBoundingClientRect();
+    this.canvasBound = this.canvas.getBoundingClientRect();
     if (this.props.img) {
       this.loadImage();
     }
@@ -44,8 +44,8 @@ export default class ReactPaint extends Component {
 
   componentWillUpdate(nextProps) {
     this.context = this.canvas.getContext('2d');
-    this.context.closePath && this.context.closePath();
-    this.context.beginPath && this.context.beginPath();
+    this.context.closePath();
+    this.context.beginPath();
     const { brushCol, lineWidth, clear } = this.props;
     if (clear !== nextProps.clear) {
       this.context.clearRect(0, 0, this.props.width, this.props.height);
@@ -69,8 +69,8 @@ export default class ReactPaint extends Component {
       mouseLoc: [e.pageX || e.touches[0].pageX, e.pageY || e.touches[0].pageY]
     });
     this.context.moveTo(
-      (e.pageX || e.touches[0].pageX) - this.bb.left,
-      (e.pageY || e.touches[0].pageY) - this.bb.top
+      (e.pageX || e.touches[0].pageX) - this.canvasBound.left,
+      (e.pageY || e.touches[0].pageY) - this.canvasBound.top
     );
   };
 
@@ -82,11 +82,11 @@ export default class ReactPaint extends Component {
       if (e.touches) e.preventDefault();
       if (
         (e.pageX || e.touches[0].pageX) > 0 &&
-        (e.pageY || e.touches[0].pageY) - this.bb.top < this.props.height
+        (e.pageY || e.touches[0].pageY) - this.canvasBound.top < this.props.height
       ) {
         this.context.lineTo(
-          (e.pageX || e.touches[0].pageX) - this.bb.left,
-          (e.pageY || e.touches[0].pageY) - this.bb.top
+          (e.pageX || e.touches[0].pageX) - this.canvasBound.left,
+          (e.pageY || e.touches[0].pageY) - this.canvasBound.top
         );
 
         this.context.stroke();

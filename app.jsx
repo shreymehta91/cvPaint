@@ -18,9 +18,9 @@ const App = () => (
     <Appbar>
       <div className="mui--appbar-height mui--appbar-line-height" style={headerStyle}>Canvas Paint</div>
     </Appbar>
-    <Container fluid={true} style={containerStyle}>
+    <Container fluid={true}>
       <BrowserRouter>
-        <div className="app">
+        <div className="app" style={containerStyle}>
           <Switch>
             <Route path="/draw/:paintId" component={PaintCanvas} />
             <Route path="/draw" component={PaintCanvas} />
