@@ -1,30 +1,30 @@
 [
 	{
 		"id":1,
-		"path":"http://i0.wp.com/notoutofthebox.in/wp-content/uploads/2014/05/p3.jpg"
+		"path":"/img1.png"
 	},
 	{
 		"id":2,
-		"path":"http://www.caerleon.net/archive/paintings/maybery/paintings/php/images/unknown_sketch.jpg"
+		"path":"/img2.png"
 	},
 	{
 		"id":3,
-		"path":"http://i0.wp.com/notoutofthebox.in/wp-content/uploads/2014/05/p3.jpg"
+		"path":"/img3.png"
 	},
 	{
 		"id":4,
-		"path":"http://www.caerleon.net/archive/paintings/maybery/paintings/php/images/unknown_sketch.jpg"
+		"path":"/img4.png"
 	},
 	{
 		"id":5,
-		"path":"http://i0.wp.com/notoutofthebox.in/wp-content/uploads/2014/05/p3.jpg"
+		"path":"/img5.png"
 	},
 	{
 		"id":6,
-		"path":"http://www.caerleon.net/archive/paintings/maybery/paintings/php/images/unknown_sketch.jpg"
+		"path":"/img6.png"
 	},
 	{
 		"id":7,
-		"path":"http://i0.wp.com/notoutofthebox.in/wp-content/uploads/2014/05/p3.jpg"
+		"path":"/img7.png"
 	}
 ]

@@ -10,7 +10,15 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('*', (req, res) => res.sendfile('./public/index.html'));
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
+app.use('/', (req, res) =>{ res.sendfile('./public/index.html') });
+
+
 
 app.listen((process.env.PORT || 4040));
 module.exports = app;
