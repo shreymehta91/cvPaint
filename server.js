@@ -5,7 +5,7 @@ const path = require('path');
 // Set up the express app
 const app = express();
 
-Log requests to the console.
+// Log requests to the console.
 app.use(logger('dev'));
 app.use('/static/*.js', function (req, res, next) {
   req.url = req.url + '.gz';
